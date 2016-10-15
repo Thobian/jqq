@@ -82,6 +82,10 @@ public class Hex {
     public static String encodeHexStr(final byte[] data) {
         return encodeHexStr(data, true);
     }
+    
+    public static String encodeHexStr(final String data) {
+        return encodeHexStr(data.getBytes(), true);
+    }
   
     /**
      * 将字节数组转换为十六进制字符串。
