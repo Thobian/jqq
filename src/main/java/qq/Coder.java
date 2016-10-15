@@ -89,7 +89,7 @@ public class Coder {
 			list.add(String.valueOf(j));
 		}
 
-		return numlist2hexstr(n, (String[]) list.toArray());
+		return numlist2hexstr(n, list.toArray(new String[]{}));
 		// return null;
 	}
 
@@ -103,8 +103,8 @@ public class Coder {
 	}
 
 	public static String hash_qqpwd_hexstr(String qqnum, String qqpwd) {
-		return DigestUtils.md5Hex(Hex.encodeHexStr(DigestUtils.md5Hex(qqpwd)) + Hex.encodeHexStr("00000000")
-				+ Hex.encodeHexStr(Coder.qqnum2hexstr(qqnum)));
+		return DigestUtils.md5Hex(Hex.decodeHex(DigestUtils.md5Hex(qqpwd)) + Hex.decodeHex("00000000")
+				+ Hex.decodeHex(Coder.qqnum2hexstr(qqnum)));
 		// return null;
 	}
 
@@ -127,5 +127,24 @@ public class Coder {
 	public static void main(String[] args) {
 		System.out.println(str2hexstr("12345"));
 		System.out.println(num2hexstr(12345, 5));
+		
+		System.out.println(qqnum2hexstr("123456"));
+		
+		System.out.println(hash_qqpwd_hexstr("123456", "12345"));
+		
+		System.out.println("====");
+		
+		System.out.println(Hex.decodeHex(DigestUtils.md5Hex("12345")));
+
+		System.out.println( Hex.decodeHex(Coder.qqnum2hexstr("123456")));
+		
+		
+		
+		System.out.println(Hex.decodeHex(DigestUtils.md5Hex("123456")) + Hex.decodeHex("00000000")
+				+ Hex.decodeHex(Coder.qqnum2hexstr("12345")));
+		
+		
+		System.out.println(DigestUtils.md5Hex("12345"));
+
 	}
 }

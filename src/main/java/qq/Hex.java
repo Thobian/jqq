@@ -147,6 +147,10 @@ public class Hex {
   
         return out;
     }
+    
+    public static String decodeHex(String data) {
+    return new String(decodeHex(data.toCharArray()));
+    }
   
     /**
      * 将十六进制字符转换成一个整数。

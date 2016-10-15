@@ -1,17 +1,16 @@
 package qq;
 
-import java.awt.RenderingHints.Key;
 import java.util.Date;
 import java.util.Random;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.codec.digest.Md5Crypt;
 
 public class AndroidQQ {
 
 	public static void main(String[] args) {
-		AndroidQQ androidQQ = new AndroidQQ("", "");
-		androidQQ.login();
+		AndroidQQ androidQQ = new AndroidQQ("634545399", "xiaomin0322");
+		//androidQQ.login();
+		
 	}
 
 	// QQ
@@ -109,7 +108,25 @@ public class AndroidQQ {
 		pwdKey = Coder.hash_qqpwd_hexstr(qqnum, qqpwd);
 		tgtKey = Coder.genBytesHexstr(16);
 		sessionKey = "";
-
+		
+		
+		   /*#debug
+	        print 'uin: ', self.uin
+	        print 'pwdMd5: ', self.pwdMd5
+	        print 'randomKey: ', self.randomKey
+	        print 'pubKey: ', self.pubKey
+	        print 'shareKey: ', self.shareKey
+	        print 'pwdKey: ', self.pwdKey
+	        print 'tgtKey: ', self.tgtKey */
+		
+		System.out.println("uin :"+uin);
+		System.out.println("pwdMd5 :"+pwdMd5);
+		System.out.println("randomKey :"+randomKey);
+		System.out.println("pubKey :"+pubKey);
+		System.out.println("shareKey :"+shareKey);
+		System.out.println("pwdKey :"+pwdKey);
+		System.out.println("tgtKey :"+tgtKey);
+		
 	}
 
 	public boolean login() {
